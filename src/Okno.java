@@ -40,6 +40,7 @@ public class Okno extends Applet implements KeyListener, MouseListener, MouseMot
 	GraphicsConfiguration		config				= null;
 
 	DirectionalLight			swiatlo1			= null;
+	DirectionalLight			swiatlo2			= null;
 
 	JPanel						aboveCanvas			= null;
 	JButton						lewo				= null;
@@ -72,7 +73,7 @@ public class Okno extends Applet implements KeyListener, MouseListener, MouseMot
 		orbita.setSchedulingBounds(bounds);
 
 		Transform3D homeTransform = new Transform3D();
-		homeTransform.setTranslation(new Vector3f(0.0f, 0.0f, 3.0f));
+		homeTransform.setTranslation(new Vector3f(0.3f, 0.3f, 3.0f));
 
 		utworzOswietlenie();
 		scara = new Scara(root);
@@ -80,18 +81,25 @@ public class Okno extends Applet implements KeyListener, MouseListener, MouseMot
 		universe.getViewingPlatform().setNominalViewingTransform();
 		universe.getViewingPlatform().setViewPlatformBehavior(orbita);
 		universe.getViewingPlatform().getViewPlatformBehavior().setHomeTransform(homeTransform);
+		orbita.goHome();
 
 		universe.addBranchGraph(root);
 	}
 
 	void utworzOswietlenie() {
 
-		Color3f swiatlo1_kolor = new Color3f(1.8f, 0.1f, 0.1f);
+		Color3f swiatlo1_kolor = new Color3f(2.8f, 0.1f, 0.1f);
+		Color3f swiatlo2_kolor = new Color3f(2.8f, 0.1f, 0.1f);
+		
 		Vector3f swiatlo1_kierunek = new Vector3f(5.0f, -5.0f, -12.0f);
-
+		Vector3f swiatlo2_kierunek = new Vector3f(5.0f, 5.0f, 12.0f);
+		
 		swiatlo1 = new DirectionalLight(swiatlo1_kolor, swiatlo1_kierunek);
+		swiatlo2 = new DirectionalLight(swiatlo2_kolor, swiatlo2_kierunek);
+		
 		swiatlo1.setInfluencingBounds(bounds);
 		root.addChild(swiatlo1);
+		root.addChild(swiatlo2);
 	}
 
 	@Override
