@@ -88,7 +88,7 @@ public class Okno extends Applet implements KeyListener, MouseListener, MouseMot
 
 	void utworzOswietlenie() {
 
-		Color3f swiatlo1_kolor = new Color3f(2.8f, 0.1f, 0.1f);
+		Color3f swiatlo1_kolor = new Color3f(0.0f, 0.749f, 1.0f);
 		Color3f swiatlo2_kolor = new Color3f(2.8f, 0.1f, 0.1f);
 		
 		Vector3f swiatlo1_kierunek = new Vector3f(5.0f, -5.0f, -12.0f);
